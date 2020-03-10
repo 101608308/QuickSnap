@@ -4,6 +4,7 @@ using CardGames.GameLogic;
 
 namespace CardGames
 {
+<<<<<<< HEAD
     public class SnapGame
     {
         public static void LoadResources()
@@ -13,6 +14,16 @@ namespace CardGames
             SwinGame.BitmapSetCellDetails (cards, 82, 110, 13, 5, 53);      // set the cells in the bitmap to match the cards
 			SwinGame.LoadFontNamed("GameFont", "Chunkfive.otf", 12);
         }
+=======
+	public class SnapGame
+	{
+		public static void LoadResources()
+		{
+			Bitmap cards;
+			cards = SwinGame.LoadBitmapNamed("Cards", "Cards.png");
+			SwinGame.BitmapSetCellDetails(cards, 82, 110, 13, 5, 53);      // set the cells in the bitmap to match the cards
+		}
+>>>>>>> origin/add-player-hit
 
 		/// <summary>
 		/// Respond to the user input -- with requests affecting myGame
@@ -23,12 +34,32 @@ namespace CardGames
 			//Fetch the next batch of UI interaction
 			SwinGame.ProcessEvents();
 
-			if (SwinGame.KeyTyped (KeyCode.vk_SPACE))
+			if (SwinGame.KeyTyped(KeyCode.vk_SPACE))
 			{
+<<<<<<< HEAD
 				myGame.Start();
+=======
+				myGame.FlipNextCard();
 			}
-		}
+			if (myGame.IsStarted)
+			{
+				if (SwinGame.KeyTyped(KeyCode.vk_LSHIFT) &&
+				SwinGame.KeyTyped(KeyCode.vk_RSHIFT))
+				{
+					//TODO: add sound effects
+				}
+				else if (SwinGame.KeyTyped(KeyCode.vk_LShift))
+				{
+					myGame.PlayerHit(0);
+				}
+				else if (SwinGame.KeyTyped(KeyCode.vk_RSHIFT))
+				{
+					myGame.PlayerHit(1);
+				}
+>>>>>>> origin/add-player-hit
+			}
 
+		}   
 		/// <summary>
 		/// Draws the game to the Window.
 		/// </summary>
